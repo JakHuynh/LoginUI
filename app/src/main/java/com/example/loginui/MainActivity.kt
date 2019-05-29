@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             }
                 Toast.makeText(this@MainActivity, status, Toast.LENGTH_SHORT).show()
 
-            if(submitusername.toString().equals("admin")
+            if(submitusername.toString().equals("admin") //go to new page
                 &&submitpassword.toString().equals("password"))
             {
                 startActivity(intent)
