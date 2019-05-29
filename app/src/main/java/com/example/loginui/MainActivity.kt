@@ -1,5 +1,6 @@
 package com.example.loginui
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -27,14 +28,31 @@ class MainActivity : AppCompatActivity() {
 
         // set on-click listener
         btnSubmit.setOnClickListener {
-            val submitusername = username.text;
-            val submitpassword = password.text;
+            val submitusername = username.text
+            val submitpassword = password.text
+            val intent = Intent(this, Main2Activity::class.java)
             Toast.makeText(this@MainActivity, submitusername, Toast.LENGTH_LONG).show()
 
             // verify user and pass for admin
-            var status = if(username.text.toString().equals("admin")
-                &&password.text.toString().equals("password")) "Login Matches" else "Login Failed"
-            Toast.makeText(this@MainActivity,status,Toast.LENGTH_SHORT).show()
+            var status = if(submitusername.toString().equals("admin")
+                &&submitpassword.toString().equals("password"))
+
+            {
+                "Login Matches"
+
+            } else
+            {
+                "Login Failed"
+            }
+                Toast.makeText(this@MainActivity, status, Toast.LENGTH_SHORT).show()
+
+            if(submitusername.toString().equals("admin")
+                &&submitpassword.toString().equals("password"))
+            {
+                startActivity(intent)
+            }
+
+
 
 
 
